@@ -34,8 +34,10 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       "." = "source";
-      nv = "nvim";
+      ap = "ansible-playbook";
       cat = "bat";
+      nv = "nvim";
+      vimdiff = "nvim -d";
     };
     oh-my-zsh = {
       enable = true;
