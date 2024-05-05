@@ -52,6 +52,7 @@
       ];
     };
     initExtra = ''
+      export PIPENV_VENV_IN_PROJECT=1
       eval "$(starship init zsh)"
       eval "$(zoxide init --cmd cd zsh)"
     '';

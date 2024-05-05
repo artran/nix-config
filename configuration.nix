@@ -109,6 +109,8 @@
   environment.shells = [ pkgs.zsh ];
   programs.zsh.enable = true;
 
+  programs.gnupg.agent.enable = true;
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
@@ -142,6 +144,7 @@
     wlroots
     rofi-wayland
     git
+    lazygit
     ripgrep
     nodejs_20
     luajitPackages.luarocks
