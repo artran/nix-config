@@ -94,9 +94,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      brave
-      neovim
-    #  thunderbird
     ];
   };
 
@@ -109,22 +106,8 @@
   };
 
   # enable zsh and oh my zsh
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    zsh-autoenv.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "git"
-        "history"
-	"ssh-agent"
-	"tmux"
-      ];
-    };
-  };
+  environment.shells = [ pkgs.zsh ];
+  programs.zsh.enable = true;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -133,7 +116,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    brave
+    neovim
     wget
     alacritty
     kitty
