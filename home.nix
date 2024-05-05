@@ -66,26 +66,14 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
-        output = [
-          "eDP-1"
-          "HDMI-A-1"
-        ];
-        modules-left = [ "sway/workspaces" "sway/mode" "wlr/taskbar" ];
-        modules-center = [ "sway/window" "custom/hello-from-waybar" ];
-        modules-right = [ "mpd" "custom/mymodule#with-css-id" "temperature" ];
+        height = 20;
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [ "temperature" ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
-        };
-        "custom/hello-from-waybar" = {
-          format = "hello {}";
-          max-length = 40;
-          interval = "once";
-          exec = pkgs.writeShellScript "hello-from-waybar" ''
-            echo "from within waybar"
-          '';
         };
       };
     };
@@ -93,14 +81,28 @@
       * {
         border: none;
         border-radius: 10;
-        font-family: Source Code Pro;
+        font-family: JetBrains Mono;
       }
       window#waybar {
         background: #16191C;
         color: #AAB2BF;
       }
+
       #workspaces button {
         padding: 0 5px;
+      }
+      #workspaces button:hover {
+      }
+
+      #workspaces button.focused {
+        /*    box-shadow: inset 0 -2px #c9545d; */
+        background-color: rgba(0,0,0,0.3);
+        color:#c9545d;
+        border-top: 2px solid #c9545d;
+      }
+
+      #workspaces button.urgent {
+        background-color: #eb4d4b;
       }
     '';
   };
