@@ -66,7 +66,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 20;
+        height = 30;
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ "cpu" "memory" "temperature" "clock" ];
@@ -74,40 +74,38 @@
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
+          format = "{icon}";
+          on-click = "activate";
+          format-icons = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            urgent = "";
+            active = "";
+            default = "";
+          };
+          sort-by-number = true;
         };
-      };
-      cpu = {
-        interval = 10;
-        format = "{}% ";
-        max-length = 10;
-      };
-      memory = {
-        interval = 30;
-        format = "{}% ";
-        max-length = 10;
-      };
-      temperature = {
-        format = "{temperatureC}°C ";
-      };
-      clock = {
-        interval = 60;
-        format = "{:%H:%M}";
-        max-length = 25;
-      };
-      "hyprland/workspaces" = {
-        format = "{icon}";
-        on-click = "activate";
-        format-icons = {
-          "1" = "";
-          "2" = "";
-          "3" = "";
-          "4" = "";
-          "5" = "";
-          urgent = "";
-          active = "";
-          default = "";
+        cpu = {
+          interval = 10;
+          format = "{}% ";
+          max-length = 10;
         };
-        sort-by-number = true;
+        memory = {
+          interval = 30;
+          format = "{}% ";
+          max-length = 10;
+        };
+        temperature = {
+          format = "{temperatureC}°C ";
+        };
+        clock = {
+          interval = 60;
+          format = "{:%H:%M}";
+          max-length = 25;
+        };
       };
     };
     style = ''
@@ -116,26 +114,36 @@
         border-radius: 10;
         font-family: JetBrains Mono;
       }
+
       window#waybar {
         background: #16191C;
         color: #AAB2BF;
       }
 
-      #workspaces button {
-        padding: 0 5px;
-      }
-      #workspaces button:hover {
+      #window {
+        padding: 0 8px;
+        /* background-color: #ffdd77; */
+        /* color: #16191C; */
       }
 
-      #workspaces button.focused {
-        /*    box-shadow: inset 0 -2px #c9545d; */
+      #workspaces button {
+        padding: 0 4px;
+      }
+
+      #workspaces button.active {
         background-color: rgba(0,0,0,0.3);
         color:#c9545d;
-        border-top: 2px solid #c9545d;
       }
 
       #workspaces button.urgent {
         background-color: #eb4d4b;
+      }
+
+      #cpu, #memory, #temperature, #clock {
+        padding: 0 8px;
+        margin: 0 2px;
+        background-color: #30ccff;
+        color: #16191C;
       }
     '';
   };
