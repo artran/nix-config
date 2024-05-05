@@ -69,12 +69,45 @@
         height = 20;
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
-        modules-right = [ "temperature" ];
+        modules-right = [ "cpu" "memory" "temperature" "clock" ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
         };
+      };
+      cpu = {
+        interval = 10;
+        format = "{}% ";
+        max-length = 10;
+      };
+      memory = {
+        interval = 30;
+        format = "{}% ";
+        max-length = 10;
+      };
+      temperature = {
+        format = "{temperatureC}°C ";
+      };
+      clock = {
+        interval = 60;
+        format = "{:%H:%M}";
+        max-length = 25;
+      };
+      "hyprland/workspaces" = {
+        format = "{icon}";
+        on-click = "activate";
+        format-icons = {
+          "1" = "";
+          "2" = "";
+          "3" = "";
+          "4" = "";
+          "5" = "";
+          urgent = "";
+          active = "";
+          default = "";
+        };
+        sort-by-number = true;
       };
     };
     style = ''
