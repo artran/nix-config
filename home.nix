@@ -40,6 +40,10 @@
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
+      extraConfig = ''
+        ZSH_TMUX_AUTOSTART=true
+        ZSH_TMUX_AUTOCONNECT=false
+      '';
       plugins = [
         "git"
         "history"
@@ -55,8 +59,6 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    ZSH_TMUX_AUTOSTART = 1;
-    ZSH_TMUX_AUTOCONNECT = 0;
   };
 
   # Let Home Manager install and manage itself.
