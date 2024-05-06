@@ -167,6 +167,7 @@
     pipenv
     pass-wayland
     rustup
+    silicon
   ];
 
   xdg.portal.enable = true;
