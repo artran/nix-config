@@ -52,6 +52,7 @@
   services.xserver.enable = true;
 
   # Get swaylock to accept the password
+  security.pam.services.waylock = {};
   security.pam.services.swaylock = {};
 
   # Enable the KDE Plasma Desktop Environment.
@@ -128,7 +129,8 @@
     alacritty
     kitty
     hyprpaper
-    swaylock-fancy
+    swaylock
+    swayidle
     dunst
     libnotify
     hyprland
