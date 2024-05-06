@@ -17,7 +17,7 @@
   services.fstrim.enable = true;
   fileSystems."/home/ray/projects" = {
     device = "/dev/disk/by-uuid/da1ba908-c20d-4c16-b783-677426c6d81b";
-    options = [ "users" "noatime" ];
+    options = [ "users" "noatime" "exec" ];
   };
 
   networking.hostName = "calcium"; # Define your hostname.
