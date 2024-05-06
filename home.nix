@@ -148,7 +148,30 @@
     '';
   };
 
+  programs.vim = {
+    enable = true;
+    extraConfig = ''
+      set nocompatible
+      set backspace=indent,eol,start
+      set list listchars=tab:\|_,trail:·
+      set autoindent
+      set softtabstop=4
+      set ruler
+      set hlsearch
+      colorscheme koehler
+      filetype plugin indent on
+      syntax on
+      autocmd BufNewFile,BufRead *.rs set filetype=rust
+    '';
 
+    settings = {
+      expandtab = true;
+      tabstop = 8;
+      shiftwidth = 4;
+      number = true;
+      relativenumber = true;
+    };
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
