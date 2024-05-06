@@ -83,7 +83,7 @@
             "4" = "";
             "5" = "";
             urgent = "";
-            active = "";
+            # active = "";
             default = "";
           };
           sort-by-number = true;
