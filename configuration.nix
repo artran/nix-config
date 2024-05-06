@@ -51,6 +51,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Get swaylock to accept the password
+  security.pam.services.swaylock = {};
+
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
@@ -125,7 +128,7 @@
     alacritty
     kitty
     hyprpaper
-    waylock
+    swaylock-fancy
     dunst
     libnotify
     hyprland
