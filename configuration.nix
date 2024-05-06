@@ -166,6 +166,7 @@
     bat
     pipenv
     pass-wayland
+    rustup
   ];
 
   xdg.portal.enable = true;
