@@ -122,52 +122,52 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    brave
-    neovim
-    wget
     alacritty
-    kitty
-    hyprpaper
-    swaylock
-    swayidle
+    bat
+    brave
     dunst
-    libnotify
+    fd
+    fzf
+    gcc
+    git
+    gnumake
+    gnupg
     hyprland
+    hyprpaper
+    kitty
+    lazygit
+    libnotify
+    luajitPackages.luarocks
+    meson
+    neovim
+    nodejs_20
+    pass-wayland
+    pipenv
+    python312
+    ripgrep
+    rofi-wayland
+    rustup
+    silicon
+    starship
+    swayidle
+    swaylock
+    tmux
+    unzip
+    vim
+    waybar
+    wayland-protocols
+    wayland-utils
+    wget
+    wl-clipboard
+    wlroots
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
     xwayland
-    waybar
+    zoxide
     (pkgs.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
     )
-    meson
-    wayland-protocols
-    wayland-utils
-    wl-clipboard
-    wlroots
-    rofi-wayland
-    git
-    lazygit
-    ripgrep
-    nodejs_20
-    luajitPackages.luarocks
-    fd
-    gnupg
-    gcc
-    gnumake
-    tmux
-    unzip
-    python312
-    starship
-    zoxide
-    fzf
-    bat
-    pipenv
-    pass-wayland
-    rustup
-    silicon
   ];
 
   xdg.portal.enable = true;
