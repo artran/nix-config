@@ -173,6 +173,57 @@
     };
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Ray Tran";
+    userEmail = "ray@artran.co.uk";
+    signing.key = "0x9F7502000A746EAB1111EEA79881D5BAA518C0A3";
+    signing.signByDefault = true;
+    aliases = {
+      stat = "status";
+      co = "checkout";
+      loggraph = "log --oneline --graph --decorate --all";
+      su = "submodule update";
+    };
+    extraConfig = {
+      color = {
+        status = "auto";
+        branch = "auto";
+        interactive = "auto";
+        diff = "auto";
+      };
+      push = {
+        default = "simple";
+      };
+      core = {
+        excludesfile = "~/.gitignore";
+        autocrlf = "input";
+        pager = "less -FX";
+      };
+      rerere = {
+        enabled = true;
+        autoupdate = true;
+      };
+      pull = {
+        rebase = true;
+      };
+      filter = {
+        lfs = {
+          process = "git-lfs filter-process";
+          required = true;
+          clean = "git-lfs clean -- %f";
+          smudge = "git-lfs smudge -- %f";
+        };
+      };
+      log = {
+        showSignature = true;
+      };
+      init = {
+        defaultbranch = "main";
+      };
+    };
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
