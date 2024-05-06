@@ -224,6 +224,34 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+    compression = true;
+    # addKeysToAgent = "yes";
+    serverAliveInterval = 240;
+
+    matchBlocks = {
+      "bitbucket.org" = {
+        identityFile = "~/.ssh/id_bitbucket";
+      };
+
+      "github.com" = {
+        identityFile = "~/.ssh/id_github";
+      };
+
+      "gitlab.com" = {
+        identityFile = "~/.ssh/id_gitlab";
+      };
+    };
+
+    extraConfig = '' 
+      SetEnv TERM=xterm-256color
+      IPQoS=throughput
+      AddKeysToAgent yes
+      IdentitiesOnly yes
+    '';
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
