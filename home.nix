@@ -9,7 +9,10 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.packages = [
+  home.packages = with pkgs; [
+    alejandra
+    deadnix
+    statix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
