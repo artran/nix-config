@@ -142,7 +142,6 @@
     neovim
     nodejs_20
     pass-wayland
-    pipenv
     python312
     ripgrep
     rofi-wayland
