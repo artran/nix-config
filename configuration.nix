@@ -137,6 +137,7 @@
     kitty
     lazygit
     libnotify
+    lua
     luajitPackages.luarocks
     meson
     neovim
