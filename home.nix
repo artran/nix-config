@@ -55,6 +55,8 @@
     };
     initExtra = ''
       export PIPENV_VENV_IN_PROJECT=1
+      export POETRY_VIRTUALENVS_IN_PROJECT=1
+      export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=1
       eval "$(starship init zsh)"
       eval "$(zoxide init --cmd cd zsh)"
     '';
@@ -109,44 +111,6 @@
         };
       };
     };
-    # style = ''
-    #   * {
-    #     border: none;
-    #     border-radius: 10;
-    #     font-family: JetBrains Mono;
-    #   }
-    #
-    #   window#waybar {
-    #     background: #16191C;
-    #     color: #AAB2BF;
-    #   }
-    #
-    #   #window {
-    #     padding: 0 8px;
-    #     /* background-color: #ffdd77; */
-    #     /* color: #16191C; */
-    #   }
-    #
-    #   #workspaces button {
-    #     padding: 0 4px;
-    #   }
-    #
-    #   #workspaces button.active {
-    #     background-color: rgba(0,0,0,0.3);
-    #     color:#c9545d;
-    #   }
-    #
-    #   #workspaces button.urgent {
-    #     background-color: #eb4d4b;
-    #   }
-    #
-    #   #cpu, #memory, #temperature, #clock {
-    #     padding: 0 8px;
-    #     margin: 0 2px;
-    #     background-color: #30ccff;
-    #     color: #16191C;
-    #   }
-    # '';
   };
 
   programs.vim = {
