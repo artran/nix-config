@@ -95,7 +95,7 @@
   users.users.ray = {
     isNormalUser = true;
     description = "Ray Tran";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
@@ -192,6 +192,9 @@
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Enable Docker
+  virtualisation.docker.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
