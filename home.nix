@@ -1,5 +1,25 @@
 { config, pkgs, ... }:
 
+let
+  palette = {
+    base00 = "#282828";
+    base01 = "#3c3836";
+    base02 = "#504945";
+    base03 = "#665c54";
+    base04 = "#7c6f64";
+    base05 = "#928374";
+    base06 = "#a89984";
+    base07 = "#d5c4a1";
+    base08 = "#fb4934";
+    base09 = "#fe8019";
+    base0A = "#fabd2f";
+    base0B = "#b8bb26";
+    base0C = "#8ec07c";
+    base0D = "#83a598";
+    base0E = "#d3869b";
+    base0F = "#d65d0e";
+  };
+in 
 {
   home.username = "ray";
   home.homeDirectory = "/home/ray";
@@ -66,6 +86,25 @@
       eval "$(zoxide init --cmd cd zsh)"
     '';
   };
+
+  home.file.".config/swaylock/config".text = ''
+      indicator-caps-lock
+      show-failed-attempts
+      ignore-empty-password
+      indicator-thickness=15
+      indicator-radius=150
+      image=~/.config/swaylock-bg.jpg
+      ring-color=${palette.base0D}
+      key-hl-color=${palette.base0F}
+      line-color=00000000
+      inside-color=00000088
+      inside-clear-color=00000088
+      separator-color=00000000
+      text-color=${palette.base05}
+      text-clear-color=${palette.base05}
+      ring-clear-color=${palette.base0D}
+      font=Ubuntu
+  '';
 
   home.file."/home/ray/.config/waybar/style.css".source = ./waybar-config/styles/translucent.css;
   programs.waybar = {
