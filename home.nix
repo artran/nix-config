@@ -12,6 +12,7 @@
   home.packages = with pkgs; [
     alejandra
     deadnix
+    eza
     statix
   ];
 
@@ -40,6 +41,7 @@
       ap = "ansible-playbook";
       cat = "bat";
       nv = "nvim";
+      ls = "eza --icons=always";
       vimdiff = "nvim -d";
     };
     oh-my-zsh = {
