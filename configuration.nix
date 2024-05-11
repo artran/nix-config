@@ -190,11 +190,21 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Enable Docker
   virtualisation.docker.enable = true;
+
+  # Optimization settings and garbage collection automation
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
