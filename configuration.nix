@@ -113,8 +113,6 @@
   environment.shells = [ pkgs.zsh ];
   programs.zsh.enable = true;
 
-  programs.gnupg.agent.enable = true;
-
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
@@ -180,10 +178,12 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    settings = {
+      default-cache-ttl = 3600;
+    };
+  };
 
   # List services that you want to enable:
 
