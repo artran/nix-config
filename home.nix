@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 let
   palette = {
@@ -29,12 +29,20 @@ in
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.packages = with pkgs; [
-    alejandra
-    deadnix
-    eza
-    statix
-  ];
+  home.packages =
+    (with pkgs; [
+      alejandra
+      deadnix
+      eza
+      statix
+    ])
+
+    ++
+
+    (with pkgs-unstable; [
+      devenv
+      python312
+    ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -84,6 +92,7 @@ in
       export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=1
       eval "$(starship init zsh)"
       eval "$(zoxide init --cmd cd zsh)"
+      source <(fzf --zsh)
     '';
   };
 

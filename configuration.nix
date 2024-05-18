@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   imports =
@@ -119,54 +119,59 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    alacritty
-    bat
-    brave
-    dunst
-    fd
-    fzf
-    gcc
-    git
-    gnumake
-    gnupg
-    hyprland
-    hyprpaper
-    kitty
-    lazygit
-    libnotify
-    lua
-    luajitPackages.luarocks
-    meson
-    neovim
-    nodejs_20
-    pass-wayland
-    python312
-    ripgrep
-    rofi-wayland
-    rustup
-    silicon
-    starship
-    swayidle
-    swaylock
-    tmux
-    unzip
-    vim
-    waybar
-    wayland-protocols
-    wayland-utils
-    wget
-    wl-clipboard
-    wlroots
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
-    xwayland
-    zoxide
-    (pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      alacritty
+      bat
+      brave
+      dunst
+      fd
+      gcc
+      git
+      gnumake
+      gnupg
+      hyprland
+      hyprpaper
+      kitty
+      lazygit
+      libnotify
+      lua
+      luajitPackages.luarocks
+      meson
+      neovim
+      nodejs_20
+      pass-wayland
+      ripgrep
+      rofi-wayland
+      rustup
+      silicon
+      starship
+      swayidle
+      swaylock
+      tmux
+      unzip
+      vim
+      waybar
+      wayland-protocols
+      wayland-utils
+      wget
+      wl-clipboard
+      wlroots
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xwayland
+      zoxide
+      (pkgs.waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        })
+      )
+    ])
+
+    ++
+
+    (with pkgs-unstable; [
+      fzf
+    ]);
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
