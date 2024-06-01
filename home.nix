@@ -33,6 +33,7 @@ in
     (with pkgs; [
       alejandra
       deadnix
+      direnv
       eza
       statix
     ])
