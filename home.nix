@@ -94,6 +94,7 @@ in
       eval "$(starship init zsh)"
       eval "$(zoxide init --cmd cd zsh)"
       source <(fzf --zsh)
+      eval "$(direnv hook zsh)"
     '';
   };
 
