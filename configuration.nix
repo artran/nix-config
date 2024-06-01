@@ -195,6 +195,7 @@
   # Optimization settings and garbage collection automation
   nix = {
     settings = {
+      trusted-users = [ "root" "@wheel" ];
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
     };
